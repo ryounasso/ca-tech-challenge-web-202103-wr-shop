@@ -10,6 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import { CardMedia, Container } from '@material-ui/core';
+import StarIcon from '@material-ui/icons/Star';
 
 const useStyles = makeStyles({
     bullet: {
@@ -35,20 +36,39 @@ function BodyCard(props) {
     const { category, description, id, image, price, title } = props;
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
+
+    let state = false;
+    let button = <StarBorderOutlinedIcon />;
+
+    const handleStarState = () => {
+        state = !state;
+        console.log(state);
+        console.log(button.type);
+        if(state){
+            button = <StarIcon />;
+        } else {
+            button = <StarBorderOutlinedIcon />;
+        }
+    }
+
+
     return (
         <Card variant="outlined">
             <CardHeader
                 action={
-                <IconButton aria-label="settings">
-                    <StarBorderOutlinedIcon />
+                <IconButton aria-label="star" onClick={handleStarState}>
+                    {button}
                 </IconButton>
                 }
                 title={title}
             />
             <CardMedia className={classes.media} image={image} />
             <CardContent>
-            <Typography variant="body2" component="p">
+            <Typography variant="body1" component="p">
                 {description}
+            </Typography>
+            <Typography variant="h5" component="p">
+                PRICE : {price}
             </Typography>
             </CardContent>
             <CardActions>
@@ -57,5 +77,6 @@ function BodyCard(props) {
         </Card>
     );
 }
+
 
 export default BodyCard
