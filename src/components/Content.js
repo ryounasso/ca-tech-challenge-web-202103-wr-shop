@@ -6,8 +6,8 @@ import BodyCard from './BodyCard'
 
 const cardContent = 
     {
-        avatarUrl: "https://ca-tech-challenge-web-202103.herokuapp.com/",
-        imageUrl: "https://picsum.photos/150"
+        // avatarUrl: "https://ca-tech-challenge-web-202103.herokuapp.com/",
+        // imageUrl: 
     }
 
 function Content() {

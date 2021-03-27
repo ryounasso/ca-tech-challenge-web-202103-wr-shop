@@ -9,7 +9,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
-import { CardMedia } from '@material-ui/core';
+import { CardMedia, Container } from '@material-ui/core';
 
 const useStyles = makeStyles({
     bullet: {
@@ -23,17 +23,21 @@ const useStyles = makeStyles({
     pos: {
       marginBottom: 12,
     },
+    media: {
+        height: 0,
+        paddingTop: '56.25%', // 16:9
+        backgroundSize : 'contain',
+    },
 });
 
 
 function BodyCard(props) {
-    const { userId, id, title, body, avatarUrl, imageUrl } = props;
+    const { category, description, id, image, price, title } = props;
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
     return (
         <Card variant="outlined">
             <CardHeader
-                avatar={<Avatar src={avatarUrl} />}
                 action={
                 <IconButton aria-label="settings">
                     <StarBorderOutlinedIcon />
@@ -41,10 +45,10 @@ function BodyCard(props) {
                 }
                 title={title}
             />
-            <CardMedia style={{ height: "150px" }} image={imageUrl} />
+            <CardMedia className={classes.media} image={image} />
             <CardContent>
             <Typography variant="body2" component="p">
-                {body}
+                {description}
             </Typography>
             </CardContent>
             <CardActions>
