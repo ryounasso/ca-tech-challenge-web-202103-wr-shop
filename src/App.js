@@ -6,8 +6,20 @@ import Typography from '@material-ui/core/Typography'
 import { fontSize } from '@material-ui/system';
 import Box from '@material-ui/core/Box';
 import ScrollUp from './utils/ScrollUp'
+import { classes } from 'istanbul-lib-coverage';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  fonts:{
+    '@media (min-width:400px)' :{
+    fontSize : '50px',
+  }
+}
+});
 
 function App() {
+  const classes = useStyles();
+
   return (
     <>
       <Grid container direction="column">
@@ -20,7 +32,7 @@ function App() {
             margin : '30px',
           }}>
           <Box display='flex' justifyContent='center' P={3}>
-            <Typography variant="h2">CA TECH CHALLENGE STORE</Typography>
+            <Typography className={classes.fonts}>CA TECH CHALLENGE STORE</Typography>
           </Box>
         </Grid>
 

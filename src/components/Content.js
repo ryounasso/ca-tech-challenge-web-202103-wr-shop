@@ -4,11 +4,7 @@ import axios from 'axios';
 import { Grid } from '@material-ui/core'
 import BodyCard from './BodyCard'
 
-const cardContent = 
-    {
-        // avatarUrl: "https://ca-tech-challenge-web-202103.herokuapp.com/",
-        // imageUrl: 
-    }
+const cardContent = {}
 
 function Content() {
     const [post, setPosts] = useState([])
