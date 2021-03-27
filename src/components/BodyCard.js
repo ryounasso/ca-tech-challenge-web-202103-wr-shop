@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -29,6 +29,12 @@ const useStyles = makeStyles({
         paddingTop: '56.25%', // 16:9
         backgroundSize : 'contain',
     },
+    card: {
+        height: '570px',
+    },
+    margins: {
+        marginBottom: '12px',
+    }
 });
 
 
@@ -37,26 +43,21 @@ function BodyCard(props) {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
 
-    let state = false;
+    const [starState, setState] = useState(false);
+
     let button = <StarBorderOutlinedIcon />;
 
-    const handleStarState = () => {
-        state = !state;
-        console.log(state);
-        console.log(button.type);
-        if(state){
-            button = <StarIcon />;
-        } else {
-            button = <StarBorderOutlinedIcon />;
-        }
+    if(starState){
+        button = <StarIcon />;
+    } else {
+        button = <StarBorderOutlinedIcon />;
     }
 
-
     return (
-        <Card variant="outlined">
+        <Card className={classes.card} variant="outlined">
             <CardHeader
                 action={
-                <IconButton aria-label="star" onClick={handleStarState}>
+                <IconButton aria-label="star" onClick={() => setState(!starState)}>
                     {button}
                 </IconButton>
                 }
@@ -64,11 +65,11 @@ function BodyCard(props) {
             />
             <CardMedia className={classes.media} image={image} />
             <CardContent>
-            <Typography variant="body1" component="p">
+            <Typography variant="body1" component="p" className={classes.margins}>
                 {description}
             </Typography>
             <Typography variant="h5" component="p">
-                PRICE : {price}
+                ￥ {price}
             </Typography>
             </CardContent>
             <CardActions>

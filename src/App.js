@@ -31,6 +31,7 @@ function App() {
       </Grid>
     
     <ScrollUp />
+    <Box p={2}></Box>
    </>
   );
 }
