@@ -92,9 +92,9 @@ function BodyCard(props) {
                 }
                 title={title}
             />
-            <Typography variant="body1" component="p" className={classes.margins}>
+            {/* <Typography variant="body1" component="p" className={classes.margins}>
                 CATEGORY : {category}
-            </Typography>
+            </Typography> */}
             <CardMedia className={classes.media} image={image} />
             <CardContent>
             <Typography variant="h5" component="p">
