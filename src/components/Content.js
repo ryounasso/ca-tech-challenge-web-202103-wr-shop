@@ -30,7 +30,7 @@ function Content() {
     const classes = useStyles();
     const [post, setPosts] = useState([])
     const [open, setOpen] = React.useState(false);
-    const [tag, setTag] = React.useState("");
+    const [tag, setTag] = React.useState("all");
     const anchorRef = React.useRef(null);
 
     function sortPrice() {
@@ -55,7 +55,6 @@ function Content() {
     }, [])
 
     useEffect(() => {
-        console.log(tag);
         if (tag==='all'){
             axios.get('https://ca-tech-challenge-web-202103.herokuapp.com/products')
             .then(res => {
@@ -68,6 +67,16 @@ function Content() {
             })
         }
     }, [tag])
+
+    let buttons;
+    if(tag==="all") {
+    buttons = 
+        <>
+        <Button variant="contained" onClick={sortDefault} className={classes.margins}>Default</Button>
+        <Button variant="contained" onClick={sortPrice} className={classes.margins}>Sort by price</Button>
+        </>;
+    }
+
 
     const prevOpen = React.useRef(open);
     React.useEffect(() => {
@@ -92,8 +101,7 @@ function Content() {
             <Box display='flex' justifyContent='center' p={10}>
                     <Typography variant='h3'>CA TECH CHALLENGE STORE</Typography>
             </Box>
-            <Button variant="contained" onClick={sortDefault} className={classes.margins}>Default</Button>
-            <Button variant="contained" onClick={sortPrice} className={classes.margins}>Sort by price</Button>
+            {buttons}
             <div>
         </div>
             <Grid container spacing={1}>
