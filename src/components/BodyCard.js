@@ -45,11 +45,12 @@ const useStyles = makeStyles((theme) => ({
       },
       card: {
           '@media (min-width:400px)': {
-              height: '540px',
+              height: '470px',
             },
       },
       margins: {
           marginBottom: '12px',
+          marginLeft: '16px',
       },
   }));
 
@@ -66,9 +67,7 @@ function BodyCard(props) {
 
     const handleOpen = () => {
         setOpen(true);
-        console.log(id);
         setPathId(id);
-        console.log(pathId);
     };
 
     const handleClose = () => {
@@ -93,17 +92,17 @@ function BodyCard(props) {
                 }
                 title={title}
             />
-            <CardMedia className={classes.media} image={image} />
-            <CardContent>
             <Typography variant="body1" component="p" className={classes.margins}>
                 CATEGORY : {category}
             </Typography>
+            <CardMedia className={classes.media} image={image} />
+            <CardContent>
             <Typography variant="h5" component="p">
                 ￥ {price}
             </Typography>
             </CardContent>
             <CardActions>
-            <Button size="small" onClick={handleOpen}>詳細をみる</Button>
+            <Button size="small" onClick={handleOpen}>more info</Button>
             </CardActions>
             <Modal
                 aria-labelledby="transition-modal-title"

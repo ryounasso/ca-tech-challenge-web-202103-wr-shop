@@ -9,33 +9,11 @@ import ScrollUp from './utils/ScrollUp'
 import { classes } from 'istanbul-lib-coverage';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-  fonts:{
-    '@media (min-width:400px)' :{
-    fontSize : '50px',
-  }
-}
-});
-
 function App() {
-  const classes = useStyles();
 
   return (
     <>
       <Grid container direction="column">
-        <Grid item>
-          <Header />
-        </Grid>
-
-        <Grid item
-          style={{
-            margin : '30px',
-          }}>
-          <Box display='flex' justifyContent='center' P={3}>
-            <Typography className={classes.fonts}>CA TECH CHALLENGE STORE</Typography>
-          </Box>
-        </Grid>
-
         <Grid item p={3}>
           <Content />
         </Grid>

@@ -14,7 +14,6 @@ function ModalButton(props) {
       useEffect(() => {
         axios.get('https://ca-tech-challenge-web-202103.herokuapp.com/products/'+id)
         .then(res => {
-            console.log(res.data.data);
             setPosts(res.data.data)
         })
     }, [])

@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardHeader from '@material-ui/core/CardHeader';
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import { CardMedia, Container } from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-import Modal from '@material-ui/core/Modal';
-import Backdrop from '@material-ui/core/Backdrop';
-import Fade from '@material-ui/core/Fade';
-import axios from 'axios';
-import ModalButton from './ModalButton';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -52,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
       },
       margins: {
           marginBottom: '12px',
+          marginLeft: '16px',
       },
   }));
 
@@ -66,6 +56,9 @@ function Details(props) {
             <CardHeader
                 title={title}
             />
+            <Typography variant="body1" component="p" className={classes.margins}>
+                CATEGORY : {category}
+            </Typography>
             <CardMedia className={classes.media} image={image} />
             <CardContent>
             <Typography variant="body1" component="p">
