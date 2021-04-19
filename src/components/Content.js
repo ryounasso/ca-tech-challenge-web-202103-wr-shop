@@ -62,10 +62,7 @@ function Content() {
       });
     } else {
       axios
-        .get(
-          "https://ca-tech-challenge-web-202103.herokuapp.com/products?category=" +
-            tag
-        )
+        .get("https://fakestoreapi.com/products/category/" + tag)
         .then((res) => {
           setPosts(res.data);
         });
