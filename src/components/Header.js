@@ -248,14 +248,14 @@ function Header(props) {
           </Button>
           <Button
             onClick={function () {
-              handleTag("men clothing");
+              handleTag("men's clothing");
             }}
           >
             men clothing
           </Button>
           <Button
             onClick={function () {
-              handleTag("women clothing");
+              handleTag("women's clothing");
             }}
           >
             women clothing
